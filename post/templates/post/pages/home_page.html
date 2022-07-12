@@ -1,0 +1,45 @@
+{% extends 'post/layouts/base.html' %}
+
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/style_home_page.css' %}">        
+{% endblock style %}
+    
+
+{% block title %}Home Page | GAB{% endblock title %}
+
+{% block content %}
+
+
+{% include '../components/navbar.html' %}
+<div class="container">
+    <div class="row">
+        <div id="columns">
+            
+            {% for post in all_posts %}
+                <figure>
+                    <a href="{{ post.get_absolute_url }}">
+                        <img src="{{ post.image.url }}">
+                    </a>
+                <figcaption>
+                    <h6 class="font-weight-bold">
+                        <a href="{% url 'account:user_profile' post.author.username %}" style="color:rgb(109, 109, 255) ;">
+                            @{{ post.author }}
+                        </a>
+                    </h6>
+                    <p class="ms-2" style="font-size: 16px; color: #ECB365;">{{ post.caption }}</p>
+                    <small class="font-weight-light">
+                        {{ post.created_at|date:"M d,Y" }}
+                    </small>
+                </figcaption>
+                </figure>
+            {% endfor %}
+
+        </div>
+            
+        <small>Art &copy; <a href="//clairehummel.com">Claire Hummel</a></small>
+    </div>
+</div>
+
+{% endblock content %}  

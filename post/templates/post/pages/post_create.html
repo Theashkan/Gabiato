@@ -1,0 +1,84 @@
+
+{% extends 'post/Layouts/base.html' %}
+
+
+{% block title %}
+    Post creation | Gap
+{% endblock title %}
+
+
+
+{% block content %}
+{% include 'components/navbar.html' %}
+
+
+  
+
+
+<section class="h-100 gradient-custom-2">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-9 col-xl-7">
+        <div class="card">
+
+
+<form class="mx-1 mx-md-4" method="POST" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+
+    <div class="text-danger">{{ post_form.non_fields.errors }}</div>
+    <div class="d-flex flex-row align-items-center mb-4">
+      <div class="text-danger">{{ post_form.caption.errors }}</div>
+      <i class="fas fa-pencil-alt fa-lg me-3 fa-fw"></i>
+      <div class="form-outline flex-fill mb-0">
+        {{ post_form.caption }}
+        <label class="form-label" for="{{ form.caption.id_for_label }}">Caption</label>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="text-danger">{{ post_form.non_fields.errors }}</div>
+    <div class="d-flex flex-row align-items-center mb-4">
+      <div class="text-danger">{{ post_form.image.errors }}</div>
+      <i class="far fa-image fa-lg me-3 fa-fw"></i>
+      <div class="form-outline flex-fill mb-0">
+        {{ post_form.image }}
+      </div>
+    </div>
+    <div class="text-danger">{{ post_form.non_fields.errors }}</div>
+    <div class="form-text" style="display:inline-block;">● A comma-separated list of tags.</div>
+    <div class="d-flex flex-row align-items-center mb-4">
+      <div class="text-danger">{{ post_form.tags.errors }}</div>
+      <i class="fas fa-hashtag fa-lg me-3 fa-fw"></i>
+      <div class="form-outline flex-fill mb-0">
+        {{ post_form.tags }}
+        <label class="form-label" for="{{ post_form.tags.id_for_label }}">Hashtags</label>
+      </div>
+    </div> 
+
+
+
+    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+      <button type="submit" class="btn btn-primary btn-lg bg-primary">Edit</button>
+    </div>
+
+
+  </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+{% endblock content %}
+
+
+    
+
+
+

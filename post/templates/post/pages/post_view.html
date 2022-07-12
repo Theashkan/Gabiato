@@ -1,0 +1,53 @@
+{% extends 'post/layouts/base.html' %}
+
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/style_post_view.css' %}"> 
+    <script src="https://kit.fontawesome.com/2ccbbfe28a.js" crossorigin="anonymous"></script>    
+{% endblock style %}
+    
+
+{% block title %}Home Page | GAB{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div id="columns">
+            <figure>
+                <img src="{{ post.image.url }}">
+                 
+                 {% if liked %}
+                    <a href="{% url 'post:post_unlike' post.author.username post.id %}" class="btn-link text-black" href="">
+                        <i class="fas fa-heart text-danger"></i>   
+                    </a>   
+                 {% else %}
+                   <a href="{% url 'post:post_like' post.author.username post.id %}" class="btn-link text-black" href="">
+                    <i class="far fa-heart"></i>    
+                   </a>   
+                 {% endif %}
+                     
+                
+                {% if likes %}
+                    {{ likes|length }} like{{ likes|length|pluralize }} 
+                {% endif %}
+                    
+            <figcaption>
+                <h6 class="font-weight-bold">
+                    <a href="{% url 'account:user_profile' post.author.username %}">
+                        @{{ post.author }}
+                    </a>
+                </h6>
+                <p class="ms-2">{{ post.caption }}</p>
+                <small class="font-weight-light">
+                    {{ post.created_at|date:"M d,Y" }}
+                </small>
+            </figcaption>
+            </figure>
+        </div>
+            
+    </div>
+</div>
+
+{% endblock content %}
