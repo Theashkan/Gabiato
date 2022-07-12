@@ -1,0 +1,14 @@
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+      <script >
+      Swal.fire({
+      icon: 'success',
+      title: 'successfully',
+      text: '{{ message }}',
+    })
+    </script></li>
+    {% endfor %}
+</ul>
+{% endif %}

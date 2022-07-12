@@ -1,0 +1,113 @@
+{% extends 'layouts/base.html' %}
+{% load my_tags %}
+
+{% block title %}
+    {{user.username | title}}'s' Profile
+{% endblock title %}
+
+
+
+{% block content %}
+{% include 'components/navbar.html' %}
+
+
+  
+
+
+<section class="h-100 gradient-custom-2">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-9 col-xl-7">
+        <div class="card">
+          <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
+            <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+              {% if user_profile.image %}
+                <img src="{{ user_profile.image.url }}"
+                alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+                style="width: 150px; z-index: 1">
+                {% else %}
+                <img src="https://www.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png"
+                alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+                style="width: 150px; z-index: 1">     
+              {% endif %}
+              
+              {% if rel %}
+                <a href="{% url 'account:user_unfollowing' user.username %}" class="btn btn-outline-danger" data-mdb-ripple-color="dark"
+                style="z-index: 1;">
+                Unfollow
+                </a>
+                {% else %}
+                <a href="{% url 'account:user_following' user.username %}" class="btn btn-outline-success" data-mdb-ripple-color="dark"
+                style="z-index: 1;">
+                Follow
+              </a>
+              {% endif %}
+                
+
+
+          </div>
+          <div class="ms-3" style="margin-top: 130px;">
+            <h5>
+              {{user.first_name | title}}
+              {{user.last_name | title}}
+            </h5>
+            <p class="mt-2">{{user.email}}</p>
+          </div>
+        </div>
+        <div class="p-4 text-black" style="background-color: #f8f9fa;">
+          <div class="d-flex justify-content-end text-center py-1">
+            <div>
+              <p class="mb-1 h5">{{ post_length }}</p>
+              <p class="small text-muted mb-0">Photos</p>
+            </div>
+            <div class="px-3">
+              <p class="mb-1 h5">{% count_follower user.username %}</p>
+              <p class="small text-muted mb-0">Followers</p>
+            </div>
+            <div>
+              <p class="mb-1 h5">{% count_following user.username %}</p>
+              <p class="small text-muted mb-0">Followings</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-body p-4 text-black">
+          <div class="mb-5">
+            <p class="lead fw-normal mb-1">About</p>
+            <div class="p-4" style="background-color: #f8f9fa;">
+              <p class="font-italic mb-1">{{ user_profile.about }}</p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <p class="lead fw-normal mb-0">Recent photos</p>
+            <p class="mb-0"><a href="#!" class="text-muted">Show all</a></p>
+          </div>
+        {% for pair in user_posts %}
+          <div class="row g-2">
+            <div class="col mb-2">
+              <img src="{{ pair.0.image.url }} " style="width: 292px;height: 195px;object-fit: cover;"
+              alt="image 1" class="rounded-3" >
+            </div>
+            
+            {% if pair.1 %}
+            <div class="col mb-2">
+              <img src="{{ pair.1.image.url }}"  style="width: 292px;height: 195px;object-fit: cover;"
+              alt="image 1" class="rounded-3">
+            </div>          
+            {% endif %}
+          </div>
+        {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+{% endblock content %}
+
+{% block script %}
+{% include 'components/messages.html' %}
+{% endblock script %}
+    

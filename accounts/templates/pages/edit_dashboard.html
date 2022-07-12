@@ -1,0 +1,91 @@
+
+{% extends 'layouts/base.html' %}
+
+
+{% block title %}
+    {{user.username | title}}'s' Profile
+{% endblock title %}
+
+
+
+{% block content %}
+{% include 'components/navbar.html' %}
+
+
+  
+
+
+<section class="h-100 gradient-custom-2">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-9 col-xl-7">
+        <div class="card">
+
+
+<form class="mx-1 mx-md-4" enctype="multipart/form-data" method="POST" novalidate>
+    {% csrf_token %}
+
+    <div class="text-danger">{{ form.non_fields.errors }}</div>
+    <div class="d-flex flex-row align-items-center mb-4">
+      <div class="text-danger">{{ form.first_name.errors }}</div>
+      <i class="fas fa-user-circle fa-lg me-3 fa-fw"></i>
+      <div class="form-outline flex-fill mb-0">
+        {{ form.first_name }}
+        <label class="form-label" for="{{ form.first_name.id_for_label }}">Name</label>
+      </div>
+    </div>
+
+    <div class="text-danger">{{ form.non_fields.errors }}</div>
+    <div class="d-flex flex-row align-items-center mb-4">
+      <div class="text-danger">{{ form.last_name.errors }}</div>
+      <i class="far fa-user fa-lg me-3 fa-fw""></i>
+      <div class="form-outline flex-fill mb-0">
+        {{ form.last_name }}
+        <label class="form-label" for="{{ form.last_name.id_for_label }}">Last name</label>
+      </div>
+    </div>
+
+    <div class="text-danger">{{ form.non_fields.errors }}</div>
+    <div class="d-flex flex-row align-items-center mb-4">
+      <div class="text-danger">{{ form.about.errors }}</div>
+      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+      <div class="form-outline flex-fill mb-0">
+        {{ form.about }}
+        <label class="form-label" for="{{ form.about.id_for_label }}">About</label>
+      </div>
+    </div>
+
+
+    <div class="text-danger">{{ form.non_fields.errors }}</div>
+    <div class="d-flex flex-row align-items-center mb-4">
+      <div class="text-danger">{{ form.image.errors }}</div>
+      <i class="far fa-image fa-lg me-3 fa-fw"></i>
+      <div class="form-outline flex-fill mb-0">
+        {{ form.image }}
+      </div>
+    </div>
+
+
+
+    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+      <button type="submit" class="btn btn-sucses btn-lg bg-sucses">Edit</button>
+    </div>
+
+
+  </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+{% endblock content %}
+
+
+    
+
+
+

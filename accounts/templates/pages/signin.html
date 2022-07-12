@@ -1,0 +1,57 @@
+{% extends 'layouts/base.html' %}
+ {% block title %} Sign in {% endblock title %}
+
+
+
+{% block content %}
+<section class="vh-100" style="background-color: #508bfc;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+            <form method="POST" novalidate>
+            {% csrf_token %}
+            <h3 class="mb-5">Sign in</h3>
+
+            <div class="form-outline mb-4">
+              {{ login_form.username.errors }}
+              {{ login_form.username }}
+              <label class="form-label" for="{{ login_form.username.id_for_label }}">Username</label>
+            </div>
+
+            <div class="form-outline mb-4">
+              {{ login_form.password.errors }}
+              {{ login_form.password }}
+              <label class="form-label" for="{{ login_form.password.id_for_label }}">Password</label>
+            </div>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+            <div class="mt-3">
+              <p class="mb-0 text-muted">Don't have an account? 
+              <a href="{% url 'account:user_register' %}" class="text-primary-50 fw-bold">Sign Up</a>
+              </p>
+            </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}
+{% block script %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+      <script >
+      Swal.fire({
+      icon: 'error',
+      title: 'Dosent Exist',
+      text: '{{ message }}',
+    })
+    </script></li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock script %}
+  
