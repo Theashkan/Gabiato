@@ -1,6 +1,6 @@
 ## Gabiato
 
-# A Social media madede with django Bootstrap & Tailwind & Css
+ A Social media madede with django Bootstrap & Tailwind & Css
 
 Enjoy IT
 
