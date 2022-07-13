@@ -7,7 +7,7 @@ Enjoy IT
 ## Features 
 
 * [Login & Rrgister](#Login&Rrgister)
-* [Edit Profile](#Edit Profile)
+* [Edit Profile](#Edit-Profile)
 * [Create post](#Create-post)
 * [Follow & Like](#Follow&Like)
 * [Responsive](#Responsive)
@@ -33,6 +33,9 @@ you can create post and add hashtags, caption and image and others see and like 
 
 ## Follow&Like
 
+You can Follow, Unfollow a profile also like and unlike a post.
 
 ![Untitled-1](https://user-images.githubusercontent.com/73990701/178797810-e125c708-ca94-4f65-991a-980f47790c2e.png)
+
+
 
