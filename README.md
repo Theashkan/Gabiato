@@ -6,7 +6,7 @@ Enjoy IT
 
 ## Features 
 
-* [Login&Rrgister](#Login % Rrgister)
+* [Login&Rrgister](#Login%Rrgister)
 * [Edit Profile](#Edit Profile)
 * [Create post](#Create post)
 * [Follow & Like](#Follow & Like)
