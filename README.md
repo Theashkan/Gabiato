@@ -21,8 +21,12 @@ You can easyly Create account and login to your accounts.
 
 ## Edit Profile
 You can Edit your profile name,family,about and your profile picture . 
+
+
 <img width="730" alt="Screen Shot 2022-07-13 at 8 18 12 PM" src="https://user-images.githubusercontent.com/73990701/178796033-fec7a52a-f00c-4df8-9c42-facbd5e168c1.png">
 
 ## Creat Post
 you can create post and add hashtags, caption and image and others see and like it .
+
+
 <img width="730" alt="Screen Shot 2022-07-13 at 8 19 02 PM" src="https://user-images.githubusercontent.com/73990701/178796138-097fbac8-c073-4bdb-9ecb-246ec5c009c6.png">
