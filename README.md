@@ -31,7 +31,7 @@ you can create post and add hashtags, caption and image and others see and like 
 
 <img width="730" alt="Screen Shot 2022-07-13 at 8 19 02 PM" src="https://user-images.githubusercontent.com/73990701/178796138-097fbac8-c073-4bdb-9ecb-246ec5c009c6.png">
 
-## Follow&Like
+## Follow & Like
 
 
 ![Untitled-1](https://user-images.githubusercontent.com/73990701/178797810-e125c708-ca94-4f65-991a-980f47790c2e.png)
